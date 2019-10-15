@@ -1,0 +1,73 @@
+<div class="box">
+    <div class="box-header">
+        <div class="col-md-11">
+            <div class="box-header">
+                <h3 class="box-title">Manage Users</h3>
+            </div><!-- /.box-header -->
+        </div>
+
+        <div class="col-md-1">
+            <a href="/users/create" class="btn bg-olive btn-flat  btn-block">
+                Add <i class="fa  fa-plus"></i>
+            </a>
+        </div>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th class="text-center">Image</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Mobile</th>
+                <th class="text-center">Department</th>
+                <th class="text-center">Manager</th>
+                <th class="text-center">Control</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {{# each users }}
+                <tr>
+                    <td class="text-center">
+                        <img src="{{image}}" class="img-circle img-table-cell" alt="User Image">
+                    </td>
+                    <td class="text-center">
+                        {{ name }}
+                    </td>
+
+                    <td class="text-center">
+                        {{ email }}
+                    </td>
+                    <td class="text-center">
+                        {{ mobile }}
+                    </td>
+
+                    <td class="text-center">
+                        {{ department }}
+                    </td>
+
+                    <td class="text-center">
+                        {{#if manager.name }}{{ manager.name }} {{/if}}
+                    </td>
+
+
+                    <td class="text-center">
+                        <a href="/users/{{_id}}/edit" class="btn btn-social-icon btn-bitbucket">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+                        <a class="btn delete-ajax btn-social-icon btn-google-plus" data-url="/delete" data-model="user"
+                           data-id={{ _id }}>
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div><!-- /.box-body -->
+</div><!-- /.box -->
+
+
+

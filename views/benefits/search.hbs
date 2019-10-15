@@ -1,0 +1,39 @@
+<div class="box">
+    <div class="box-header">
+        <div class="col-md-11">
+            <input type="text" name="search" id="keyword" placeholder="Search for benefits ..." class="form-control"/>
+        </div>
+
+        <div class="col-md-1">
+            <a href="" class="btn btn-block bg-olive btn-flat  btn-block" id="search">
+                <i class="fa  fa-search"></i>
+            </a>
+        </div>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <div class="timeline-item">
+            <div class="timeline-body">
+                {{# each benefits }}
+                    <a href="/benefits/{{ _id }}" style="display: inline-block;background-color: #EEE; margin: 10px">
+                        <img style="width: 150px; height: 100px" src={{ image }} alt="..." class="margin">
+                        <h6 class="text-center">{{ title }}</h6>
+                    </a>
+                {{/each}}
+                <p id="ext-template"></p>
+            </div>
+        </div>
+    </div><!-- /.box-body -->
+</div><!-- /.box -->
+
+
+<script>
+    function search(e) {
+        e.preventDefault();
+        let keyword = document.getElementById("keyword").value;
+        window.location.href = `/benefits/search/${keyword}`
+    }
+
+    document.getElementById('search').addEventListener('click', search);
+</script>
+
+

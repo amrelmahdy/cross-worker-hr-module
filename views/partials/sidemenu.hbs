@@ -1,0 +1,40 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+    <section class="sidebar">
+
+        <ul class="sidebar-menu">
+
+            {{#if user.role }}
+                <li class="{{#ifContains path 'users'}}active{{/ifContains}}">
+                    <a href="/users">
+                        <i class="fa fa-users"></i> <span>Employees</span>
+                    </a>
+                </li>
+
+                <li class="{{#ifContains path 'benefits'}}active{{/ifContains}}">
+                    <a href="/benefits">
+                        <i class="fa fa-star"></i> <span>Benefits</span>
+                    </a>
+                </li>
+
+
+            {{else}}
+                <li class="{{#ifContains path 'users'}}active{{/ifContains}}">
+                    <a href="/profile">
+                        <i class="fa fa-user"></i> <span>Profile</span>
+                    </a>
+                </li>
+                <li class="{{#ifContains path 'benefits/search'}}active{{/ifContains}}">
+                    <a href="/benefits/search">
+                        <i class="fa fa-search"></i> <span>Benefits Search</span>
+                    </a>
+                </li>
+
+            {{/if}}
+
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
